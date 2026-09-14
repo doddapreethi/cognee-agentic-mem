@@ -1,0 +1,50 @@
+[
+  {
+    "id": "chunk-001",
+    "text": "Project Aurora is an internal customer-support platform. The backend is built with FastAPI, memory is managed by Cognee, and the web client is served by Node.js.",
+    "metadata": {
+      "topic": "architecture",
+      "source": "internal-demo"
+    }
+  },
+  {
+    "id": "chunk-002",
+    "text": "Aurora uses a private memory dataset named private_memory. The application should keep memory retrieval scoped to this dataset and should never accept an arbitrary dataset name from the browser.",
+    "metadata": {
+      "topic": "security",
+      "source": "internal-demo"
+    }
+  },
+  {
+    "id": "chunk-003",
+    "text": "For local development, Cognee uses SQLite for relational state, LanceDB for vector search, and Kuzu for the knowledge graph. These stores are persisted under the project's backend/data directory.",
+    "metadata": {
+      "topic": "storage",
+      "source": "internal-demo"
+    }
+  },
+  {
+    "id": "chunk-004",
+    "text": "Aurora runs Ollama locally for both the language model and embeddings. The configured embedding model is nomic-embed-text, and the application does not send memory content to OpenAI or another hosted LLM provider.",
+    "metadata": {
+      "topic": "privacy",
+      "source": "internal-demo"
+    }
+  },
+  {
+    "id": "chunk-005",
+    "text": "The memory lifecycle is remember for ingestion, recall for retrieval, improve for enrichment, and forget for deletion. A successful remember without a session creates permanent graph-backed memory.",
+    "metadata": {
+      "topic": "memory-lifecycle",
+      "source": "internal-demo"
+    }
+  },
+  {
+    "id": "chunk-006",
+    "text": "The API should return only operation summaries for remember, improve, and forget. Recall results are returned only to an authenticated local caller; application logs must not contain request bodies or memory contents.",
+    "metadata": {
+      "topic": "api-security",
+      "source": "internal-demo"
+    }
+  }
+]

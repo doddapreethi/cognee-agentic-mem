@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  />
+
+  <title>Private Cognee Memory</title>
+
+  <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+  <main class="container">
+
+    <header>
+      <h1>Private Cognee Memory</h1>
+      <p>
+        Local FastAPI + Node.js + Cognee + Ollama
+      </p>
+    </header>
+
+
+    <!-- =========================
+         RECALL
+         ========================= -->
+
+    <section class="card">
+      <h2>Recall</h2>
+
+      <textarea
+        id="query"
+        rows="4"
+        placeholder="Ask a question about your stored memory..."
+      ></textarea>
+
+      <div class="row">
+        <input
+          id="topK"
+          type="number"
+          min="1"
+          max="15"
+          value="5"
+          aria-label="Number of results"
+        />
+
+        <button id="recallBtn">
+          Recall
+        </button>
+      </div>
+
+      <pre
+        id="recallOut"
+        class="output"
+      ></pre>
+    </section>
+
+
+    <!-- =========================
+         REMEMBER + OPERATIONS
+         ========================= -->
+
+    <section class="grid">
+
+      <div class="card">
+        <h2>Remember</h2>
+
+        <textarea
+          id="rememberText"
+          rows="5"
+          placeholder="Enter a memory to store..."
+        ></textarea>
+
+        <button id="rememberBtn">
+          Remember
+        </button>
+
+        <pre
+          id="rememberOut"
+          class="output"
+        ></pre>
+      </div>
+
+
+      <div class="card">
+        <h2>Operations</h2>
+
+        <button id="ingestBtn">
+          Ingest sample chunks
+        </button>
+
+        <button id="improveBtn">
+          Improve memory
+        </button>
+
+        <button
+          id="forgetBtn"
+          class="danger"
+        >
+          Forget private_memory
+        </button>
+
+        <pre
+          id="opsOut"
+          class="output"
+        ></pre>
+      </div>
+
+    </section>
+
+
+    <footer>
+      The browser never receives the backend API token.
+      Node.js keeps it server-side and proxies requests
+      to FastAPI over localhost.
+    </footer>
+
+  </main>
+
+
+  <script src="/app.js"></script>
+</body>
+</html>
